@@ -771,6 +771,7 @@ ul {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    transition: gap 0.2s;
 }
 
 .portfolio-link:hover {
@@ -886,12 +887,6 @@ ul {
     color: var(--dark-orange);
 }
 
-.method-note {
-    color: var(--text-color);
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
 .contact-guarantee {
     display: flex;
     gap: 15px;
@@ -920,16 +915,6 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.form-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.form-header h3 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
 .form-group {
     margin-bottom: 25px;
 }
@@ -953,11 +938,6 @@ ul {
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: var(--transition);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--medium-gray);
 }
 
 .form-group input:focus,
@@ -1038,19 +1018,6 @@ ul {
     font-size: 1.8rem;
     margin-bottom: 5px;
     display: block;
-}
-
-.footer-tagline {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.footer-slogan {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    font-style: italic;
 }
 
 .footer-links h4, .footer-contact h4 {
@@ -1161,17 +1128,6 @@ ul {
     color: #fca5a5;
 }
 
-.theme-credit {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--accent-orange) !important;
-}
-
-.theme-credit i {
-    color: var(--accent-orange) !important;
-}
-
 /* Modal */
 .modal {
     display: none;
@@ -1195,6 +1151,8 @@ ul {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     animation: modalAppear 0.4s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    padding: 40px;
 }
 
 @keyframes modalAppear {
@@ -1208,69 +1166,33 @@ ul {
     }
 }
 
-.modal-header {
-    background-color: var(--primary-blue);
-    color: var(--white);
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-header h3 {
-    color: var(--white);
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.modal-header h3 i {
-    color: #4ade80;
+.modal-icon i {
+    font-size: 4rem;
+    color: var(--accent-orange);
+    margin: 20px 0;
 }
 
 .close-modal {
-    font-size: 1.8rem;
+    float: right;
+    font-size: 2rem;
     cursor: pointer;
-    transition: var(--transition);
 }
 
 .close-modal:hover {
     color: var(--accent-orange);
 }
 
-.modal-body {
-    padding: 30px;
-    text-align: center;
-}
-
-.modal-icon {
-    font-size: 4rem;
-    color: var(--accent-orange);
-    margin-bottom: 20px;
-}
-
-.modal-body h4 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: var(--heading-color);
-}
-
-.modal-body p {
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
-
 .modal-list {
-    text-align: left;
+    list-style: none;
     margin: 20px 0;
+    text-align: left;
 }
 
 .modal-list li {
-    margin-bottom: 10px;
+    margin: 12px 0;
     display: flex;
+    gap: 12px;
     align-items: center;
-    gap: 10px;
 }
 
 .modal-list i {
@@ -1279,9 +1201,10 @@ ul {
 
 .modal-actions {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     justify-content: center;
-    margin-top: 30px;
+    flex-wrap: wrap;
+    margin-top: 24px;
 }
 
 /* Loading Spinner */
@@ -1300,32 +1223,21 @@ ul {
 
 .spinner {
     text-align: center;
-    color: white;
-}
-
-.spinner-inner {
-    width: 80px;
-    height: 80px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top: 5px solid var(--accent-orange);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 40px;
 }
 
 .spinner-inner i {
+    font-size: 3rem;
+    animation: spin 1s linear infinite;
     color: var(--accent-orange);
-    font-size: 2rem;
-    animation: pulse 1s infinite;
 }
 
 .spinner p {
-    color: white;
+    color: var(--text-color);
     font-size: 1.2rem;
-    margin: 0;
+    margin-top: 20px;
 }
 
 /* Responsive Design */
