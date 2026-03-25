@@ -17,7 +17,6 @@ const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 const loadingSpinner = document.getElementById('loadingSpinner');
 const submitButton = document.getElementById('submitButton');
-const whatsappButton = document.getElementById('whatsappButton');
 
 // Initialize EmailJS
 (function() {
@@ -127,7 +126,7 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Form Submission with EmailJS - FIXED VERSION
+// Form Submission with EmailJS
 if (quoteForm) {
     quoteForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -158,7 +157,7 @@ if (quoteForm) {
         submitButton.disabled = true;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         
-        // Prepare template parameters - SIMPLE AND CLEAN
+        // Prepare template parameters
         const templateParams = {
             to_email: YOUR_EMAIL,
             name: name,
@@ -173,7 +172,7 @@ if (quoteForm) {
         
         console.log('Sending:', templateParams);
         
-        // Send email using EmailJS send method
+        // Send email using EmailJS
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
             .then(function(response) {
                 console.log('Email sent successfully', response);
@@ -216,16 +215,6 @@ if (quoteForm) {
                 const mailtoLink = `mailto:${YOUR_EMAIL}?subject=Quote Request from ${business}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ABusiness: ${business}%0D%0AService: ${service}%0D%0AUrgent: ${urgent}%0D%0A%0D%0AMessage:%0D%0A${message}`;
                 window.open(mailtoLink, '_blank');
             });
-    });
-}
-
-// WhatsApp button in modal
-if (whatsappButton) {
-    whatsappButton.addEventListener('click', () => {
-        window.open('https://wa.me/2760950954', '_blank');
-        if (successModal) {
-            successModal.style.display = 'none';
-        }
     });
 }
 
@@ -347,7 +336,7 @@ window.addEventListener('load', () => {
                 const element = quoteForm.querySelector(`[name="${key}"]`);
                 if (element) {
                     if (element.type === 'checkbox') {
-                        element.checked = formObject[key] === 'on';
+                        element.checked = formObject[key] === 'on' || formObject[key] === 'YES';
                     } else {
                         element.value = formObject[key];
                     }
